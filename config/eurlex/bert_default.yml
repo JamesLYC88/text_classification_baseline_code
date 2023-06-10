@@ -1,0 +1,30 @@
+# data
+data_dir: data_nn/eurlex
+data_name: eurlex
+min_vocab_freq: 1
+max_seq_length: 512
+include_test_labels: true
+add_special_tokens: true
+
+# train
+seed: 1337
+epochs: 15
+batch_size: 8
+optimizer: adamw
+learning_rate: 0.00005
+weight_decay: 0.001
+patience: 5
+
+# eval
+eval_batch_size: 8
+monitor_metrics: ['Micro-F1', 'Macro-F1']
+val_metric: Micro-F1
+
+# model
+model_name: BERT
+init_weight: null
+network_config:
+  lm_weight: bert-base-uncased
+
+# pretrained vocab / embeddings
+embed_file: null

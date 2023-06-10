@@ -1,0 +1,76 @@
+# data
+data_dir: data_nn/ecthr_b
+data_name: ecthr_b
+min_vocab_freq: 1
+max_seq_length: ['grid_search', [128, 512]]
+include_test_labels: true
+remove_no_label_data: false
+
+# train
+seed: 1337
+epochs: 15
+batch_size: 8
+optimizer: adamw
+learning_rate: ['grid_search', [0.00002, 0.00003, 0.00005]]
+momentum: 0
+weight_decay: ['grid_search', [0, 0.001]]
+patience: 5
+shuffle: true
+
+# eval
+eval_batch_size: 8
+monitor_metrics: ['Micro-F1', 'Macro-F1']
+val_metric: Micro-F1
+
+# model
+model_name: BERT
+init_weight: null
+network_config:
+  dropout: ['grid_search', [0.1, 0.2]]
+  lm_weight: bert-base-uncased
+
+# pretrained vocab / embeddings
+vocab_file: null
+embed_file: null
+normalize_embed: false
+
+# hyperparamter search
+search_alg: basic_variant
+embed_cache_dir: null
+num_samples: 1
+scheduler: null
+# Uncomment the following lines to enable the ASHAScheduler.
+# See the documentation here: https://docs.ray.io/en/latest/tune/api_docs/schedulers.html#asha-tune-schedulers-ashascheduler
+#scheduler:
+  #time_attr: training_iteration
+  #max_t: 50 # the maximum epochs to run for each config (parameter R in the ASHA paper)
+  #grace_period: 10 # the minimum epochs to run for each config (parameter r in the ASHA paper)
+  #reduction_factor: 3 # reduce the number of configuration to floor(1/reduction_factor) each round of successive halving (called rung in ASHA paper)
+  #brackets: 1 # number of brackets. A smaller bracket index (parameter s in the ASHA paper) means earlier stopping (i.e., less total resources used)
+
+# other parameters specified in main.py::get_args
+checkpoint_path: null
+cpu: false
+data_workers: 4
+eval: false
+label_file: null
+limit_train_batches: 1.0
+limit_val_batches: 1.0
+limit_test_batches: 1.0
+metric_threshold: 0.5
+result_dir: runs
+save_k_predictions: 0
+silent: true
+test_path: null
+train_path: null
+val_path: null
+val_size: 0.2
+
+# LexGLUE
+zero: true
+multi_class: false
+add_special_tokens: true
+enable_ce_loss: false
+hierarchical: false
+accumulate_grad_batches: 1
+enable_transformer_trainer: false

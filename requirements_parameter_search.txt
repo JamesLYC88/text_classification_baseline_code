@@ -1,0 +1,5 @@
+bayesian-optimization==1.2.0 # ray[tune]
+optuna==2.10.1 # ray[tune]
+ray==1.13.0
+ray[tune]==1.13.0
+grpcio==1.43.0 # Fix issue: https://github.com/ray-project/ray/issues/22518
