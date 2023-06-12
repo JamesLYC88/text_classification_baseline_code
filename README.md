@@ -1,5 +1,18 @@
 # Linear Classifier: An Often-Forgotten Baseline for Text Classification
 
+This is the code for the ACL 2023 paper "[Linear Classifier: An Often-Forgotten Baseline for Text Classification](https://www.csie.ntu.edu.tw/~cjlin/papers/text_classification_baseline/text_classification_baseline.pdf)". The repository is used to reproduce the experimental results in our paper. If you find our work useful, please consider citing the following paper:
+```bib
+@InProceedings{YCL22a,
+    author = {Yu-Chen Lin and Si-An Chen and Jie-Jyun Liu and Chih-Jen Lin},
+    title = {Linear Classifier: An Often-Forgotten Baseline for Text Classification},
+    booktitle = {Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL)},
+    year = {2023},
+    url = {https://www.csie.ntu.edu.tw/~cjlin/papers/text_classification_baseline/text_classification_baseline.pdf},
+    note = {Short paper}
+}
+```
+Please feel free to contact [Yu-Chen Lin](mailto:b06504025@csie.ntu.edu.tw) if you have any questions about the code/paper.
+
 ## Setup Environment
 
 It is optional but highly recommended to create a virtual environment. For example, you can first refer to the [link](https://docs.conda.io/en/latest/miniconda.html) for the installation guidances of Miniconda and then create a virtual environment as follows.
@@ -112,7 +125,7 @@ Additional information is shown as follows.
 bash search_params.sh [DATA]
 
 # Replace the given tuned configuration with the searched parameters
-mv runs/[DATA]_tos_bert_tune_XXX/trial_best_params/params.yml config/[DATA]/bert_tuned.yml
+mv runs/[DATA]_bert_tune_XXX/trial_best_params/params.yml config/[DATA]/bert_tuned.yml
 
 # Run the BERT_tuned setting
 bash run_experiments.sh [DATA] bert_tuned
