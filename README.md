@@ -132,6 +132,11 @@ bash run_experiments.sh [DATA] bert_tuned
 ```
 * To conduct the **BERT_reproduced** method on the data sets **ECtHR (A)**, **ECtHR (B)**, and **SCOTUS**, you need a GPU that includes more than 16GB of GPU memory.
 
+## Evaluation
+
+For comparison purposes, we followed Chalkidis et al. (2022) to deal with unlabeled datasets during the evaluation process,
+though this setting is not a standard practice in multi-label classification, nor is it supported by LibMultiLabel.
+
 ## Reproducibility
 
 For our experimental results, linear methods were run on the CPU **Intel Xeon E5-2690**, while for BERT we used the GPU **Nvidia V100**. You may notice some minor differences in results between your running of our scripts and our paper results, especially on the BERT results. If you want to fully reproduce our results, you should carefully follow the items below.
