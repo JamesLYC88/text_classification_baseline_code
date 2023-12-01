@@ -135,7 +135,7 @@ bash run_experiments.sh [DATA] bert_tuned
 ## Evaluation
 
 For comparison purposes, we followed Chalkidis et al. (2022) to deal with unlabeled datasets during the evaluation process,
-though this setting is not a standard practice in multi-label classification, nor is it supported by LibMultiLabel.
+though this setting is not a standard practice in multi-label classification, nor is it supported by [LibMultiLabel](https://github.com/ASUS-AICS/LibMultiLabel).
 
 ## Reproducibility
 
