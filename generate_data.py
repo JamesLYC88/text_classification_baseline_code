@@ -85,7 +85,7 @@ def main():
         os.makedirs(data_path, exist_ok=True)
         processed_data = {}
         for split in args.split_list:
-            dataset = load_dataset('lex_glue', data, split=split)
+            dataset = load_dataset('coastalcph/lex_glue', data, split=split, trust_remote_code=True)
             texts = get_texts(data, dataset, hier=args.format == 'hier')
             labels = get_labels(data, dataset, data2task(data))
             assert len(texts) == len(labels)
